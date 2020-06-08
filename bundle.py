@@ -27,6 +27,7 @@ FILE_END = '}'
 KEY_TEMPLATE = '"{}":'
 SEPARATOR = ','
 
+
 def pull_data(url):
     r = requests.get(url, timeout=60)
     r.raise_for_status()
