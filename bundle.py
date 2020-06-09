@@ -27,6 +27,13 @@ FILE_END = '}'
 KEY_TEMPLATE = '"{}":'
 SEPARATOR = ','
 
+
+class NoDataException(Exception):
+    def __init__(self, message, errors=None):
+        super().__init__(message)
+        self.errors = errors
+
+
 def pull_data(url):
     r = requests.get(url, timeout=60)
     r.raise_for_status()
@@ -43,6 +50,8 @@ def create_file():
             name = source.get('name')
             url = source.get('url')
             data = pull_data(url)
+            if not data:
+                raise NoDataException('No data to write to file')
             if first:
                 first = False
             else:
