@@ -1,7 +1,6 @@
 name: Create data bundle
 
 on:
-  push: null
   schedule:
     - cron: '*/10 * * * *'
 
