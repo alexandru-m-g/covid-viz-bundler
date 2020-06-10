@@ -2,7 +2,7 @@ name: Create data bundle
 
 on:
   schedule:
-    - cron: '25 9 * * *'
+    - cron: '15 9 * * *'
 
 jobs:
   bundle:
